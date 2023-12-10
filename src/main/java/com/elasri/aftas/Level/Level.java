@@ -25,10 +25,6 @@ public class Level {
     private String description;
     private Integer points;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "competition_id")
-    private Competition competition;
-
     @OneToMany(mappedBy = "level", cascade = CascadeType.ALL)
     private List<Fish> fish;
 

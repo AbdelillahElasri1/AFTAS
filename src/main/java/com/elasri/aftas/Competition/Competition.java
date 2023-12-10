@@ -30,8 +30,6 @@ public class Competition {
     private String location;
     private double amount;
 
-    @OneToMany(mappedBy = "competition", cascade = CascadeType.ALL)
-    private List<Level> levels;
 
     @OneToOne(mappedBy = "competition")
     private Hunting hunting;
