@@ -1,5 +1,7 @@
 package com.elasri.aftas.Ranking;
 
+import com.elasri.aftas.Member.Member;
+import com.elasri.aftas.Member.MemberResponse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,5 +12,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class RankingResponse {
-    private String code;
+    private Long id;
+    private Integer rank;
+    private Integer score;
+
+    private MemberResponse member;
 }

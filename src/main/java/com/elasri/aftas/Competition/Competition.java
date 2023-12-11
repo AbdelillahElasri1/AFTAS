@@ -2,6 +2,7 @@ package com.elasri.aftas.Competition;
 
 import com.elasri.aftas.Hunting.Hunting;
 import com.elasri.aftas.Level.Level;
+import com.elasri.aftas.Ranking.Ranking;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -33,4 +34,7 @@ public class Competition {
 
     @OneToOne(mappedBy = "competition")
     private Hunting hunting;
+
+    @OneToMany(mappedBy = "competition", cascade = CascadeType.ALL)
+    private List<Ranking> rankings;
 }
