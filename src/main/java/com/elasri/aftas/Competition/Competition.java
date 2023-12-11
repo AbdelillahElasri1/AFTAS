@@ -32,8 +32,11 @@ public class Competition {
     private double amount;
 
 
-    @OneToOne(mappedBy = "competition")
-    private Hunting hunting;
+//    @OneToOne(mappedBy = "competition")
+//    private Hunting hunting;
+
+    @OneToMany(mappedBy = "competition", cascade = CascadeType.ALL)
+    private List<Hunting> huntings;
 
     @OneToMany(mappedBy = "competition", cascade = CascadeType.ALL)
     private List<Ranking> rankings;

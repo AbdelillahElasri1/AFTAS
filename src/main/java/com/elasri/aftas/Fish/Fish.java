@@ -1,5 +1,6 @@
 package com.elasri.aftas.Fish;
 
+import com.elasri.aftas.Hunting.Hunting;
 import com.elasri.aftas.Level.Level;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -9,6 +10,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @Table(name = "t_fish")
@@ -26,4 +29,8 @@ public class Fish {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "level_id")
     private Level level;
+
+
+    @OneToMany(mappedBy = "fish", cascade = CascadeType.ALL)
+    private List<Hunting> huntings;
 }

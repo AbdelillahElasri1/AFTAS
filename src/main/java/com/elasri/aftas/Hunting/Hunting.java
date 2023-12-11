@@ -1,6 +1,7 @@
 package com.elasri.aftas.Hunting;
 
 import com.elasri.aftas.Competition.Competition;
+import com.elasri.aftas.Fish.Fish;
 import com.elasri.aftas.Level.Level;
 import com.elasri.aftas.Member.Member;
 import jakarta.persistence.*;
@@ -25,11 +26,20 @@ public class Hunting {
     @JoinColumn(name = "num_member")
     private Member participant;
 
-    @OneToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "competition_id")
     private Competition competition;
 
-    @OneToOne
-    @JoinColumn(name = "level_id")
-    private Level level;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "fish_id")
+    private Fish fish;
+
+//    @OneToOne
+//    @JoinColumn(name = "competition_id")
+//    private Competition competition;
+
+
+//    @OneToOne
+//    @JoinColumn(name = "level_id")
+//    private Level level;
 }

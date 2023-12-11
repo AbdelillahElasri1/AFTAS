@@ -10,5 +10,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class HuntingRequest {
-    private String code;
+    private Integer numberOfFish;
+    private Integer num_member;
+    private Long competition_id;
+    private Long fish_id;
 }

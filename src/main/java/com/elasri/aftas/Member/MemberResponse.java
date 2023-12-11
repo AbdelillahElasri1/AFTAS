@@ -29,6 +29,6 @@ public class MemberResponse {
     private String identifyNumber;
 
     private List<RankingResponse> rankings;
-    private List<HuntingResponse> huntings;
+    //private List<HuntingResponse> huntings;
 
 }

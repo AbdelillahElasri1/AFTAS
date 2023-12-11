@@ -31,6 +31,4 @@ public class Level {
     @OneToMany(mappedBy = "level", cascade = CascadeType.ALL)
     private List<Fish> fish;
 
-    @OneToOne(mappedBy = "level")
-    private Hunting hunting;
 }
