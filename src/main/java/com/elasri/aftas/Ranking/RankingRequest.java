@@ -11,9 +11,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class RankingRequest {
-    private Long id;
     private Integer rank;
     private Integer score;
 
     private Integer num_member;
+    private Long competition_id;
 }

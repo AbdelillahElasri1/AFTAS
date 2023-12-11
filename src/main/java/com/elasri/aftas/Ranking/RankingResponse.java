@@ -1,5 +1,6 @@
 package com.elasri.aftas.Ranking;
 
+import com.elasri.aftas.Competition.CompetitionResponse;
 import com.elasri.aftas.Member.Member;
 import com.elasri.aftas.Member.MemberResponse;
 import lombok.AllArgsConstructor;
@@ -17,4 +18,5 @@ public class RankingResponse {
     private Integer score;
 
     private MemberResponse member;
+    private CompetitionResponse competition;
 }

@@ -28,7 +28,7 @@ public class MemberResponse {
     private IdentifyDocumentType identifyDocumentType;
     private String identifyNumber;
 
-    private List<RankingResponse> rankings;
+    //private List<RankingResponse> rankings;
     //private List<HuntingResponse> huntings;
 
 }
