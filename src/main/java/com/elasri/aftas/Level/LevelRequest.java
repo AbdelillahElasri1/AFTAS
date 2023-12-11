@@ -10,5 +10,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class LevelRequest {
-    private String code;
+    private String description;
+    private Integer points;
 }
