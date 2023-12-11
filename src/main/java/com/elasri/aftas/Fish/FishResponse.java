@@ -1,6 +1,7 @@
 package com.elasri.aftas.Fish;
 
 import com.elasri.aftas.Level.Level;
+import com.elasri.aftas.Level.LevelResponse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,7 +12,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class FishResponse {
+    private Long id;
     private String name;
     private Double averageWeight;
-    private Level level;
+    private LevelResponse level;
 }

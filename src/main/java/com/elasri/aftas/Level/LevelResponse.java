@@ -10,5 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class LevelResponse {
-    private String code;
+    private Integer code;
+    private String description;
+    private Integer points;
 }
