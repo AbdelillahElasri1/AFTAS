@@ -1,7 +1,8 @@
 package com.elasri.aftas.Competition;
 
-import com.elasri.aftas.Fish.FishResponse;
+import com.elasri.aftas.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/competition")
+@CrossOrigin(origins = "http://localhost:4200")
 public class CompetitionController {
     @Autowired
     private CompetitionService competitionService;
@@ -24,6 +26,21 @@ public class CompetitionController {
     public ResponseEntity<List<CompetitionResponse>> getAllCompetitions(){
         List<CompetitionResponse> competitionResponseList = competitionService.getAllCompetition();
         return ResponseEntity.ok(competitionResponseList);
+    }
+
+
+    @GetMapping(
+            params = { "page", "size"}
+    )
+    public Page<CompetitionResponse> findPaginated(
+            @RequestParam("page") int page, @RequestParam("size") int size) {
+
+        Page<CompetitionResponse> resultPage = competitionService.findPaginated(page, size);
+        if (page > resultPage.getTotalPages()) {
+            throw new ResourceNotFoundException("competition id : ");
+        }
+
+        return resultPage;
     }
 
     @GetMapping("{id}")

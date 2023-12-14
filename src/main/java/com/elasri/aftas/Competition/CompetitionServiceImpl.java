@@ -1,10 +1,10 @@
 package com.elasri.aftas.Competition;
 
-import com.elasri.aftas.Fish.Fish;
-import com.elasri.aftas.Fish.FishResponse;
 import com.elasri.aftas.exception.ResourceNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,6 +18,7 @@ public class CompetitionServiceImpl implements CompetitionService{
     private CompetitionRepository competitionRepository;
     @Autowired
     private ModelMapper modelMapper;
+
 
     @Override
     public CompetitionRequest createCompetition(CompetitionRequest competitionRequest) {
@@ -36,10 +37,20 @@ public class CompetitionServiceImpl implements CompetitionService{
         competitionRepository.deleteById(id);
     }
 
+
+
     @Override
     public List<CompetitionResponse> getAllCompetition() {
         List<Competition> competitionList = competitionRepository.findAll();
         return competitionList.stream().map(competition -> modelMapper.map(competition, CompetitionResponse.class)).collect(Collectors.toList());
+    }
+
+    @Override
+    public Page<CompetitionResponse> findPaginated(int page, int size) {
+        Page<Competition> competitionPage = competitionRepository.findAll(PageRequest.of(page - 1, size));
+
+        //return competitionRepository.findAll(PageRequest.of(page, size));
+        return competitionPage.map(competition -> modelMapper.map(competition,CompetitionResponse.class));
     }
 
     @Override
